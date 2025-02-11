@@ -29,7 +29,6 @@ jobs:
           ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
             cd ~/fastapi-book-project
             git pull origin main
-            docker-compose down
-            docker-compose up -d --build
-            docker system prune -f
+            docker compose down
+            docker compose up -d --build
           EOF
